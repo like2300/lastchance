@@ -20,4 +20,5 @@ urllib3==2.3.0
 websocket-client==1.8.0
 whitenoise==6.9.0
 wsproto==1.2.0
+django-countries==7.9.1
  
