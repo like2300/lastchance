@@ -1,0 +1,107 @@
+{% extends 'vitrine/base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- META RESPONSIVE -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- CSS -->
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link href="{% static 'output.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<link rel="stylesheet" href="{% static 'input.css' %}">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<!-- JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<title>{% block title %} Notre Équipe - Universe Academy {% endblock %}</title>
+
+<main class="main w-full">
+    <!-- Section En-tête -->
+    <section class="relative bg-yellow-500 text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2  gap-8 items-center">
+                <div>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">L'équipe Universe Academy</h1>
+                    <p class="text-lg mb-6">Découvrez les experts qui vous accompagnent dans votre réussite.</p>
+                </div>
+                <div class=" lg:block">
+                    <img src="{% static 'teacher.svg' %}" 
+                         alt="Notre équipe en action" 
+                         class="rounded-lg shadow-lg h-80 object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Membres de l'Équipe -->
+    <section class="bg-gray-50 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">Rencontrez notre équipe</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                {% for eq in equipe %}
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                    <div class="relative">
+                        <img src="{{ eq.photo.url }}" 
+                             alt="{{ eq.prenom }} {{ eq.nom }}" 
+                             class="w-full h-64 object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-medium text-gray-800">{{ eq.prenom }} {{ eq.nom }}</h3>
+                        <p class="text-blue-600 mb-4">{{ eq.role }}</p>
+                        <div class="flex space-x-4 mt-4">
+                            {% if eq.linkedin %}
+                            <a href="{{ eq.linkedin }}" target="_blank" 
+                               class="text-gray-500 hover:text-blue-600 transition">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c0-2.314 3.926-2.045 3 0v6.835h3v11z"></path>
+                                </svg>
+                            </a>
+                            {% endif %}
+                            {% if eq.twitter %}
+                            <a href="{{ eq.twitter }}" target="_blank" 
+                               class="text-gray-500 hover:text-blue-400 transition">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M23.954 4.569a10 10 0 0 1-2.825.775 4.958 4.958 0 0 0 2.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 0 0-8.384 4.482C7.691 8.094 4.066 6.13 1.64 3.161a4.822 4.822 0 0 0-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 0 1-2.228-.616v.061a4.923 4.923 0 0 0 3.946 4.827 4.996 4.996 0 0 1-2.212.085 4.937 4.937 0 0 0 4.604 3.417 9.868 9.868 0 0 1-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 0 0 7.557 2.209 12.074 12.074 0 0 1-8.686-4.313 6.062 6.062 0 0 0 1.697 8.343A12.958 12.958 0 0 1 2.31 7.047v-.125a6.064 6.064 0 0 0 4.824 5.959 6.003 6.003 0 0 1-2.771.875 6.013 6.013 0 0 0 5.585 4.015 12.15 12.15 0 0 1-9.036-4.273 14.892 14.892 0 0 0 7.944 2.118c10.296 0 15.87-8.604 15.87-15.87 0-.243-.006-.485-.017-.725a10.016 10.016 0 0 0 2.485-2.565l-.002-.001z"></path>
+                                </svg>
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Appel à l'action -->
+    <section class="bg-blue-900 text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Prêt à rejoindre notre communauté ?</h2>
+            <p class="text-lg mb-8">Contactez-nous pour plus d'informations ou inscrivez-vous dès maintenant.</p>
+            <div class="space-x-4">
+                <a href="{% url 'contact' %}" 
+                   class="bg-orange-500 text-white px-6 py-3 rounded-full hover:bg-orange-600 transition">
+                    Contactez-nous
+                </a>
+                <a href="{% url 'inscription' %}" 
+                   class="bg-white text-blue-900 px-6 py-3 rounded-full hover:bg-gray-100 transition">
+                    S'inscrire
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    AOS.init({
+        duration: 1000,
+        once: true
+    });
+});
+</script>
+{% endblock %}

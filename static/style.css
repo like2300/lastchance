@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playwrite+MX+Guides&display=swap');
+
+
+
+
+
+/* Animation de transition pour l'opacité */
+.transition-opacity {
+    transition: opacity 0.5s ease-in-out; /* Réduire le temps ici si nécessaire */
+}
+
+/* Style de la liste avec transitions */
+ul {
+    transition-property: opacity, left;
+    transition-duration: 3s, 5s;
+    transition: all 1s ease-out;
+}
+
+/* Couleur de bordure personnalisée */
+.custom-border-color {
+    border-color: #FFB001;
+}
+
+/* Style des éléments du carousel */
+.carousel-item {
+    font-family: "Abril Fatface", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2em;
+    display: none; /* Masquer par défaut */
+    position: relative; /* Pour positionner le texte par-dessus l'image */
+    opacity: 0; /* Initialiser l'opacité à 0 */
+    transition: opacity 0.5s ease; /* Transition d'opacité */
+}
+
+/* Affichage de l'élément actif */
+.carousel-item.active {
+    display: block; /* Affiche l'élément actif */
+    opacity: 1; /* Rendre l'élément visible */
+}
+
+/* Style des images */
+img {
+    height: 650px;
+    width: 100%; /* Assure que l'image s'adapte à la largeur du conteneur */
+    object-fit: cover; /* Assure que l'image couvre l'élément sans déformation */
+}
+
+/* Animations */
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes scale-in {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes slide-in {
+    0% {
+        transform: translateY(10px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Classes d'animation */
+.animate-fade-in {
+    animation: fade-in 2s forwards; /* Effet de fondu */
+}
+
+.animate-scale-in {
+    animation: scale-in 2s forwards; /* Effet de zoom */
+}
+
+.animate-slide-in {
+    animation: slide-in 2s forwards; /* Effet de glissement */
+}
+
+/* Optionnel : Styles pour le texte dans les éléments du carousel */
+.carousel-item h2, .carousel-item p {
+    margin: 0; /* Élimine toute marge par défaut */
+    color: white; /* Texte blanc pour le contraste */
+    text-align: center; /* Centrer le texte */
+}
+
+
+/* 
+p , .scro{
+    animation: variation  ease-out;
+    animation-timeline: view();
+    animation-range-start: cover 0% ;
+    animation-range-end: contain 80% ;
+}
+
+
+
+@keyframes variation {
+    
+from{
+    transition: scall(0);
+    transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
+    opacity: 0;
+    transform: rotate(70%);
+   
+}
+
+to{
+    transform: scale(1);
+    opacity: 1;
+    transform: rotate(0%);
+    
+}
+
+} */

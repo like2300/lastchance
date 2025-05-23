@@ -1,0 +1,51 @@
+{% extends 'vitrine/base.html' %}
+
+{% block content %}
+<section class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-20 bg-gray-50">
+    <h2 class="text-center text-3xl sm:text-4xl font-bold text-indigo-700 uppercase mb-12">
+        À propos de la plateforme
+    </h2>
+
+    {% for info in infos %}
+        <div class="grid sm:grid-cols-2 gap-10 items-center mb-20 {% if forloop.counter0|divisibleby:2 %}sm:flex-row{% else %}sm:flex-row-reverse{% endif %}">
+            {% if forloop.counter0|divisibleby:2 %}
+                <!-- Texte à gauche -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 transition-transform transform hover:scale-105 hover:shadow-2xl duration-300">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-4 border-b border-indigo-600 inline-block pb-1">
+                        {{ info.titre }}
+                    </h2>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        {{ info.description|linebreaks }}
+                    </p>
+                    <p class="text-sm text-gray-500">Dernière mise à jour : {{ info.date_mise_a_jour|date:"d/m/Y H:i" }}</p>
+                </div>
+                <!-- Image à droite -->
+                <div class="flex justify-center">
+                    <div class="w-full max-w-md">
+                        <img src="https://img.freepik.com/free-vector/side-view-boy-with-laptop-table-white-background_1308-50717.jpg?ga=GA1.1.1620338931.1744471861&semt=ais_hybrid&w=740" alt="Illustration" class="w-full h-auto rounded-xl shadow-md hover:shadow-xl transition duration-300">
+                    </div>
+                </div>
+            {% else %}
+                <!-- Image à gauche -->
+                <div class="flex justify-center">
+                    <div class="w-full max-w-md">
+                        <img src="https://img.freepik.com/free-photo/fun-3d-cartoon-illustration-indian-businessman_183364-114454.jpg?ga=GA1.1.1620338931.1744471861&semt=ais_hybrid&w=740" alt="Illustration" class="w-full h-auto rounded-xl shadow-md hover:shadow-xl transition duration-300">
+                    </div>
+                </div>
+                <!-- Texte à droite -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 transition-transform transform hover:scale-105 hover:shadow-2xl duration-300">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-4 border-b border-indigo-600 inline-block pb-1">
+                        {{ info.titre }}
+                    </h2>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        {{ info.description|linebreaks }}
+                    </p>
+                    <p class="text-sm text-gray-500">Dernière mise à jour : {{ info.date_mise_a_jour|date:"d/m/Y H:i" }}</p>
+                </div>
+            {% endif %}
+        </div>
+    {% empty %}
+        <p class="text-center text-gray-500 col-span-2">Aucune information disponible pour le moment.</p>
+    {% endfor %}
+</section>
+{% endblock %}

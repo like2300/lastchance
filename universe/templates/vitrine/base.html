@@ -1,0 +1,208 @@
+{% load static %}
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- CSS externes -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="{% static 'output.css' %}" rel="stylesheet">
+    <link href="{% static 'test.css' %}" rel="stylesheet">
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Police Google (corrigée) -->
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite&display=swap" rel="stylesheet">
+
+    <!-- SwiperJS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <title>{% block title %}Universe Academy{% endblock %}</title>
+
+    <!-- AOS Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Style du loader -->
+    <style>
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom right, #312e81, #6b21a8, #312e81);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3rem;
+            font-weight: bold;
+            color: white;
+            font-family: 'Playwrite', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            
+        }
+
+        h4{
+          animation: fadeInOut 1s forwards;
+          animation-iteration-count: infinite;
+        }
+
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Loader -->
+    <div id="loader"><h4>Universe Academy</h4></div>
+
+    <!-- HEADER -->
+    <header class="flex shadow-md py-4 px-4 sm:px-10 bg-primary font-[sans-serif] min-h-[70px] tracking-wide fixed w-full z-50">
+        <div class="flex flex-wrap items-center justify-between gap-5 w-full text-4xl font-bold">
+            <a href="/" class="text-secondary text-lg flex">Universe Academy</a>
+            <div id="collapseMenu" class="max-lg:hidden lg:!block max-lg:before:fixed max-lg:before:bg-black max-lg:before:opacity-65 max-lg:before:inset-0 max-lg:before:z-50">
+                <button id="toggleClose" class="lg:hidden fixed top-2 right-4 z-[100] rounded-full bg-white p-3">&#10006;</button>
+                <ul class="lg:flex text-center gap-x-5 max-lg:space-y-4 max-lg:fixed max-lg:bg-primary max-md:text-white max-lg:w-1/2 max-lg:min-w-full max-lg:top-0 max-lg:left-0 max-lg:p-6 max-lg:h-full opacity-100 items-center max-lg:shadow-md max-lg:overflow-auto z-50">
+                    <li class="mb-6 hidden max-lg:block">
+                        <a href="#" class="hover:scale-105 text-center text-bold text-2xl lg:text-secondary text-secondary">Universe Academy</a>
+                    </li>
+                    <li class="max-lg:border-b text-white border-gray-300 max-lg:py-3 px-3">
+                        <a href="/" class="hover:scale-105 hover:text-secondary lg:text-white block font-semibold text-lg transition duration-200">Accueil</a>
+                    </li>
+                    <li class="max-lg:border-b border-gray-300 max-lg:py-3 px-3">
+                        <a href="{% url 'equipe' %}" class="hover:scale-105 hover:text-secondary text-white block font-semibold text-lg transition duration-200">Équipe</a>
+                    </li>
+                    <li class="max-lg:border-b border-gray-300 max-lg:py-3 px-3">
+                        <a href="{% url 'inscription' %}" class="hover:scale-105 hover:text-secondary text-white block font-semibold text-lg transition duration-200">Inscription</a>
+                    </li>
+                    <li class="max-lg:border-b border-gray-300 max-lg:py-3 px-3">
+                        <a href="{% url 'info' %}" class="hover:text-secondary text-white block font-semibold text-lg transition duration-200">À propos</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="flex max-lg:ml-auto space-x-3">
+                <button class="px-4 py-2 text-sm rounded-full font-bold text-white border-primary bg-[#ffae00] transition-all ease-in-out duration-300 ring-1 hover:bg-[#1E2A47] hover:ring-2 focus:ring-2 ring-secondary outline-none ring-offset-2 hover:scale-110">
+                    <a href="{% url 'contact' %}">Contact</a>
+                </button>
+                <button id="toggleOpen" class="lg:hidden p-2 bg-gray-800 rounded-md">
+                    <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M3 5h14a1 1 0 010 2H3a1 1 0 110-2zm0 5h14a1 1 0 110 2H3a1 1 0 110-2zm0 5h14a1 1 0 110 2H3a1 1 0 110-2z" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    {% block content %}
+
+    
+    {% endblock %}
+
+    <!-- FOOTER -->
+   <!-- LE fouteur  -->
+
+<footer class="bg-gray-800 py-6 px-8 font-sans tracking-wide">
+  <div class="flex max-lg:flex-col items-center justify-between gap-x-6 gap-y-8">
+
+    <ul class="flex flex-wrap justify-center gap-6">
+      <li>
+        <a href='javascript:void(0)'>
+          <svg xmlns="http://www.w3.org/2000/svg" class="fill-blue-600 w-8 h-8" viewBox="0 0 49.652 49.652">
+            <path d="M24.826 0C11.137 0 0 11.137 0 24.826c0 13.688 11.137 24.826 24.826 24.826 13.688 0 24.826-11.138 24.826-24.826C49.652 11.137 38.516 0 24.826 0zM31 25.7h-4.039v14.396h-5.985V25.7h-2.845v-5.088h2.845v-3.291c0-2.357 1.12-6.04 6.04-6.04l4.435.017v4.939h-3.219c-.524 0-1.269.262-1.269 1.386v2.99h4.56z" data-original="#000000" />
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a href='javascript:void(0)'>
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 112.196 112.196">
+            <circle cx="56.098" cy="56.097" r="56.098" fill="#007ab9" data-original="#007ab9" />
+            <path fill="#fff" d="M89.616 60.611v23.128H76.207V62.161c0-5.418-1.936-9.118-6.791-9.118-3.705 0-5.906 2.491-6.878 4.903-.353.862-.444 2.059-.444 3.268v22.524h-13.41s.18-36.546 0-40.329h13.411v5.715c-.027.045-.065.089-.089.132h.089v-.132c1.782-2.742 4.96-6.662 12.085-6.662 8.822 0 15.436 5.764 15.436 18.149zm-54.96-36.642c-4.587 0-7.588 3.011-7.588 6.967 0 3.872 2.914 6.97 7.412 6.97h.087c4.677 0 7.585-3.098 7.585-6.97-.089-3.956-2.908-6.967-7.496-6.967zm-6.791 59.77H41.27v-40.33H27.865v40.33z" data-original="#f1f2f2" />
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a href='javascript:void(0)'>
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 152 152">
+            <linearGradient id="a" x1="22.26" x2="129.74" y1="22.26" y2="129.74" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#fae100" />
+              <stop offset=".15" stop-color="#fcb720" />
+              <stop offset=".3" stop-color="#ff7950" />
+              <stop offset=".5" stop-color="#ff1c74" />
+              <stop offset="1" stop-color="#6c1cd1" />
+            </linearGradient>
+            <g data-name="Layer 2">
+              <g data-name="03.Instagram">
+                <rect width="152" height="152" fill="url(#a)" data-original="url(#a)" rx="76" />
+                <g fill="#fff">
+                  <path fill="#ffffff10" d="M133.2 26c-11.08 20.34-26.75 41.32-46.33 60.9S46.31 122.12 26 133.2q-1.91-1.66-3.71-3.46A76 76 0 1 1 129.74 22.26q1.8 1.8 3.46 3.74z" data-original="#ffffff10" />
+                  <path d="M94 36H58a22 22 0 0 0-22 22v36a22 22 0 0 0 22 22h36a22 22 0 0 0 22-22V58a22 22 0 0 0-22-22zm15 54.84A18.16 18.16 0 0 1 90.84 109H61.16A18.16 18.16 0 0 1 43 90.84V61.16A18.16 18.16 0 0 1 61.16 43h29.68A18.16 18.16 0 0 1 109 61.16z" data-original="#ffffff" />
+                  <path d="m90.59 61.56-.19-.19-.16-.16A20.16 20.16 0 0 0 76 55.33 20.52 20.52 0 0 0 55.62 76a20.75 20.75 0 0 0 6 14.61 20.19 20.19 0 0 0 14.42 6 20.73 20.73 0 0 0 14.55-35.05zM76 89.56A13.56 13.56 0 1 1 89.37 76 13.46 13.46 0 0 1 76 89.56zm26.43-35.18a4.88 4.88 0 0 1-4.85 4.92 4.81 4.81 0 0 1-3.42-1.43 4.93 4.93 0 0 1 3.43-8.39 4.82 4.82 0 0 1 3.09 1.12l.1.1a3.05 3.05 0 0 1 .44.44l.11.12a4.92 4.92 0 0 1 1.1 3.12z" data-original="#ffffff" />
+                </g>
+              </g>
+            </g>
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a href='javascript:void(0)'>
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 1227 1227">
+            <path d="M613.5 0C274.685 0 0 274.685 0 613.5S274.685 1227 613.5 1227 1227 952.315 1227 613.5 952.315 0 613.5 0z" data-original="#000000" />
+            <path fill="#fff" d="m680.617 557.98 262.632-305.288h-62.235L652.97 517.77 470.833 252.692H260.759l275.427 400.844-275.427 320.142h62.239l240.82-279.931 192.35 279.931h210.074L680.601 557.98zM345.423 299.545h95.595l440.024 629.411h-95.595z" data-original="#ffffff" />
+          </svg>
+        </a>
+      </li>
+    </ul>
+
+    <p class='text-base text-center text-gray-300  max-lg:order-1'>© copy-right All rights reserved.</p>
+    <ul class="flex justify-center gap-x-6 gap-y-2 flex-wrap">
+      <li><a href="javascript:void(0)" class="text-gray-300 hover:text-white text-base">Terms of Service</a></li>
+      <li><a href="javascript:void(0)" class="text-gray-300 hover:text-white text-base">Privacy Policy</a></li>
+      <li><a href="javascript:void(0)" class="text-gray-300 hover:text-white text-base">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+
+
+    <!-- Script pour désactiver le loader après 2s -->
+    <script>
+        window.onload = function() {
+            setTimeout(function() {
+                document.getElementById("loader").style.display = "none";
+                AOS.init();
+            }, 1000); // 2 secondes
+        };
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+          const toggleOpen = document.getElementById('toggleOpen');
+          const toggleClose = document.getElementById('toggleClose');
+          const collapseMenu = document.getElementById('collapseMenu');
+  
+          toggleOpen.addEventListener('click', function () {
+              collapseMenu.classList.remove('max-lg:hidden');
+          });
+  
+          toggleClose.addEventListener('click', function () {
+              collapseMenu.classList.add('max-lg:hidden');
+          });
+      });
+  </script>
+  
+</body>
+</html>

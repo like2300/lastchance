@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chargement | Universe Academy</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    // Fonction pour simuler un délai de chargement
+    window.onload = function() {
+      setTimeout(function() {
+        // Rediriger vers la page principale après 3 secondes
+        window.location.href = 'index.html'; // Remplace 'index.html' par l'URL de ta page principale
+      }, 3000); // Délai de 3 secondes
+    };
+  </script>
+</head>
+<body class="bg-gradient-to-br from-indigo-900 via-purple-900 to-indigo-900 h-screen flex items-center justify-center">
+
+  <div class="text-center">
+    <!-- Logo ou icône animée -->
+    <div class="mb-6">
+      <div class="w-24 h-24 mx-auto rounded-full bg-white flex items-center justify-center animate-spin">
+        <svg class="w-12 h-12 text-indigo-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Texte d'attente -->
+    <h1 class="text-white text-3xl font-bold mb-2">Universe Academy</h1>
+    <p class="text-gray-300 text-lg">Chargement en cours... Veuillez patienter.</p>
+  </div>
+
+</body>
+</html>
